@@ -9,19 +9,9 @@ export default function Home() {
       <div>
         <h1> CPRG 306: Web Development 2 - Assignments </h1>
         <StudentInfo />
-        <ul>
-          {weekAssignments.map((week) =>
-           week <= doneAssignments ? (
-          <li key={week}>
-              <Link href={`/week${week}`}>Week {week} Assignment</Link>
-          </li>
-           ) : (
-            <li key={week}>
-             T_T Week {week} Assignment
-            </li>
-           )
-          )}
-        </ul>
+      </div>
+      <div>
+        <Link href="/week2">Week 2</Link>
       </div>
     </main>
   )  
