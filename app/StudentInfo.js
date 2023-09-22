@@ -1,16 +1,21 @@
 import Link from "next/link";
 
 export default function StudentInfo() {
+    const name = 'Kyle Castillo';
+    const section = 'CPRG 306 E';
+    const githubRepository =  <Link href="https://github.com/Kyle-Castillo?tab=repositories">Github Repository</Link>;
+
 return (
+
     <main id ='studentInfo'> 
         <p>
-            Name: Kyle Castillo
+            Name: {name}
         </p>
         <p>
-            Course Section: CPRG 306 E
+            Course Section: {section}
         </p>
         <p>
-            <Link href="https://github.com/Kyle-Castillo?tab=repositories"> Github Repository </Link>
+            {githubRepository}
         </p>
     </main>
 );
