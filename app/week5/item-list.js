@@ -23,20 +23,20 @@ export default function ItemList() {
             </h3>
             <button
                 onClick={() => handleSortByChange("name")}
-                style={{backgroundColor: sortBy === "name" ? "lightblue" : "white"}}
+                style={{backgroundColor: sortBy === "name" ? "lightblue" : "lightyellow"}}
             >
                 Name
             </button> 
             <button
                 onClick={() => handleSortByChange("category")}
-                style={{ backgroundColor: sortBy === "category" ? "lightgrey" : "white"}}
+                style={{ backgroundColor: sortBy === "category" ? "lightgrey" : "lightyellow"}}
             >
               Category  
             </button> 
         </div>
 
         <ul>
-            {Items
+            {items
             .sort((a,b) => {
                 if (sortBy === "name") {
                     return a.name.localeCompare(b.name);
@@ -45,7 +45,7 @@ export default function ItemList() {
                 }
             })
             .map(item => (
-                <Item key={item.id} item={item} />
+                <Items items key={item.id} item={item} />
             ))
             }
         </ul>
