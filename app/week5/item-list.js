@@ -9,6 +9,14 @@ export default function ItemList() {
 
     let items = itemsData.map((item) => ({
         ...item}));
+
+    items = items.sort((a,b) => {
+        if (sortBy === "name") {
+            return a.name.localeCompare(b.name);
+        } else if (sortBy === "category") {
+            return a.category.localeCompare(b.category);
+        }
+    })
     
 
    const handleSortByChange = (newSortPreference) => {
@@ -23,32 +31,23 @@ export default function ItemList() {
             </h3>
             <button
                 onClick={() => handleSortByChange("name")}
-                style={{backgroundColor: sortBy === "name" ? "lightblue" : "lightyellow"}}
+                className={`px-4 py-2 ${sortBy === "name" ? "bg-blue-400" : "bg-blue-200"} active:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300`}
             >
                 Name
             </button> 
             <button
                 onClick={() => handleSortByChange("category")}
-                style={{ backgroundColor: sortBy === "category" ? "lightgrey" : "lightyellow"}}
+                className={`px-4 py-2 ${sortBy === "name" ? "bg-blue-200" : "bg-blue-400"} active:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300`}
             >
               Category  
             </button> 
         </div>
-
-        <ul>
-            {items
-            .sort((a,b) => {
-                if (sortBy === "name") {
-                    return a.name.localeCompare(b.name);
-                } else if (sortBy === "category") {
-                    return a.category.localeCompare(b.category);
-                }
-            })
-            .map(item => (
-                <Items items key={item.id} item={item} />
-            ))
-            }
-        </ul>
+        <div>
+            {items.map((items) => (
+                <Items items={items} key={items.id} />
+            ))}
+        </div>
+ 
     </div>
    );
 }
