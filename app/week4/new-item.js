@@ -63,6 +63,9 @@ export default function NewItem() {
                         <label className="block mb-5">
                             <span className="text-black">Quantity:</span>
                             <input 
+                             type="number"
+                             min="1"
+                             max="99"
                              required
                              onChange={handleQuantityChange}
                              value={quantity}
@@ -72,12 +75,23 @@ export default function NewItem() {
 
                         <label className="block mb-5">
                             <span className="text-black">Category:</span>
-                            <input 
-                             required
+                            <select 
                              onChange={handleCategoryChange}
                              value={category}
                              className="mt-1 p-2 block w-full rounded-sm text-black bg-gray-200 focus:bg-white"
-                            />
+                            >
+                               <option value="produce" selected="">Produce</option>
+                               <option value="dairy">Dairy</option>
+                               <option value="bakery">Bakery</option> 
+                               <option value="meat">Meat</option> 
+                               <option value="frozen foods">Frozen Foods</option> 
+                               <option value="canned goods">Canned Foods</option> 
+                               <option value="dry goods">Dry goods</option> 
+                               <option value="beverages">Beverages</option> 
+                               <option value="snacks">Snacks</option> 
+                               <option value="household">Household</option> 
+                               <option value="other">Other</option>  
+                            </select>
                         </label>
 
                         <button
