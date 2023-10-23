@@ -93,7 +93,7 @@ export default function NewItem({ onAddItem }) {
             type="submit"
             className="w-full py-3 px-6 bg-sky-300 hover:bg-sky-600 rounded-md text-white"
           >
-            Create Item
+            Add Item
           </button>
         </form>
       </div>
