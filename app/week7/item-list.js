@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 import Items from "./item";
 
-export default function ItemList({ items }) {
+export default function ItemList({ items, onItemSelect }) {
     const [sortBy, setSortBy] = useState("name");
 
     items = items.sort((a,b) => {
@@ -40,7 +40,10 @@ export default function ItemList({ items }) {
         </div>
         <div>
             {items.map((items) => (
-                <Items items={items} key={items.id} />
+                <Items 
+                    items={items} 
+                    key={items.id}
+                    onSelect={() => onItemSelect(items.name)} />
             ))}
         </div>
  
